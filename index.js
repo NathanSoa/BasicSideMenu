@@ -6,14 +6,7 @@ window.addEventListener('load', () => {
 
     menuAnchors.forEach(eachAnchor => {
         eachAnchor.addEventListener('click', () => {
-            const menuOptionList = eachAnchor.parentElement.children[1]
-
-            if(IsThisMenuHidden(menuOptionList)){
-                hideMenus()
-                changeClass("show-menu", menuOptionList)
-            }else{
-                changeClass("hide-menu", menuOptionList)
-            }
+            changeMenuVisibility(eachAnchor)
         })
     })
 
@@ -31,4 +24,17 @@ window.addEventListener('load', () => {
     function changeClass(className, element){
             element.className = className
     }
+
+    
+function changeMenuVisibility(eachAnchor) {
+    const menuOptionList = eachAnchor.parentElement.children[1]
+
+    if (IsThisMenuHidden(menuOptionList)) {
+        hideMenus()
+        changeClass("show-menu", menuOptionList)
+    } else {
+        changeClass("hide-menu", menuOptionList)
+    }
+}
+
 })
